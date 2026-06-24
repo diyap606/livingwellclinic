@@ -324,12 +324,7 @@
             height: 140px;
             background-color: #E6F4F0;
             border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-weight: bold;
-            color: var(--primary);
-            font-size: 1.2rem;
+            object-fit: cover; /* Keeps image correctly oriented inside circles */
             flex-shrink: 0;
             border: 4px solid white;
             box-shadow: 0 8px 20px rgba(0,0,0,0.05);
@@ -486,7 +481,7 @@
             <h2 class="section-title">Meet Our Medical Providers</h2>
             <div class="providers-grid">
                 <div class="provider-card">
-                    <div class="provider-avatar">Dr. Manali</div>
+                    <img src="Dr. Manali Patel.jpg" alt="Dr. Manali Patel Headshot" class="provider-avatar">
                     <div class="provider-details">
                         <h2>Manali Patel, MD, DABOM</h2>
                         <div class="provider-tag">Internal Medicine & Obesity Medicine</div>
@@ -494,7 +489,7 @@
                     </div>
                 </div>
                 <div class="provider-card">
-                    <div class="provider-avatar">Dr. Nayan</div>
+                    <img src="Dr. Nayan Patel.jpg" alt="Dr. Nayan Patel Headshot" class="provider-avatar">
                     <div class="provider-details">
                         <h2>Nayan Patel, OD, ABO</h2>
                         <div class="provider-tag">Doctor of Optometry</div>
@@ -541,7 +536,7 @@
                     const elementPosition = targetElement.getBoundingClientRect().top + window.scrollY;
                     
                     window.scrollTo({
-                        top: elementPosition - headerHeight - 20, // Clean dynamic spacing offset
+                        top: elementPosition - headerHeight - 20, 
                         behavior: 'smooth'
                     });
                 }
