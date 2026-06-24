@@ -19,7 +19,7 @@
             --bg-white: #FFFFFF;
             --border-color: #E2E8F0;
             --shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05), 0 2px 4px -1px rgba(0, 0, 0, 0.03);
-            --transition: all 0.3s ease;
+            --transition: all 0.2s ease-in-out;
         }
 
         * {
@@ -84,16 +84,66 @@
             align-items: center;
         }
 
-        nav a {
+        nav > a, .dropdown-toggle {
             text-decoration: none;
             color: var(--text-dark);
             font-weight: 500;
             font-size: 0.95rem;
             transition: var(--transition);
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            gap: 4px;
         }
 
-        nav a:hover {
+        nav > a:hover, .dropdown:hover .dropdown-toggle {
             color: var(--primary);
+        }
+
+        /* DROPDOWN MENU SYSTEM */
+        .dropdown {
+            position: relative;
+            padding: 10px 0; /* Creates a stable hover bridge */
+        }
+
+        .dropdown-menu {
+            position: absolute;
+            top: 100%;
+            left: 50%;
+            transform: translateX(-50%) translateY(10px);
+            background-color: var(--bg-white);
+            min-width: 220px;
+            border-radius: 8px;
+            border: 1px solid var(--border-color);
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+            opacity: 0;
+            visibility: hidden;
+            transition: opacity 0.2s ease, transform 0.2s ease, visibility 0.2s;
+            list-style: none;
+            overflow: hidden;
+        }
+
+        /* Show Dropdown on Hover */
+        .dropdown:hover .dropdown-menu {
+            opacity: 1;
+            visibility: visible;
+            transform: translateX(-50%) translateY(0);
+        }
+
+        .dropdown-menu li a {
+            display: block;
+            padding: 12px 20px;
+            color: var(--text-dark);
+            text-decoration: none;
+            font-size: 0.9rem;
+            font-weight: 500;
+            transition: var(--transition);
+        }
+
+        .dropdown-menu li a:hover {
+            background-color: #F7FAFC;
+            color: var(--primary);
+            padding-left: 24px; /* Subtle animated nudge */
         }
 
         .nav-phone {
@@ -467,6 +517,22 @@
                 flex-wrap: wrap;
                 justify-content: center;
             }
+            .dropdown-menu {
+                position: static;
+                transform: none;
+                box-shadow: none;
+                border: none;
+                opacity: 1;
+                visibility: visible;
+                display: none;
+                background-color: #F7FAFC;
+                text-align: center;
+                width: 100%;
+            }
+            .dropdown:hover .dropdown-menu {
+                display: block;
+                transform: none;
+            }
             .hero h1 {
                 font-size: 2.2rem;
             }
@@ -509,7 +575,15 @@
                 LivingWell<span>Clinic</span>
             </a>
             <nav>
-                <a href="#services">Services</a>
+                <div class="dropdown">
+                    <span class="dropdown-toggle">Services ▾</span>
+                    <ul class="dropdown-menu">
+                        <li><a href="internal-medicine.html">Internal Medicine</a></li>
+                        <li><a href="optometry.html">Optometry Eye Clinic</a></li>
+                        <li><a href="weight-management.html">Weight Management</a></li>
+                    </ul>
+                </div>
+                
                 <a href="#providers">Our Doctors</a>
                 <a href="#portal">Patient Portal</a>
                 <a href="#contact">Hours & Location</a>
@@ -533,7 +607,7 @@
     <main class="container">
 
         <section id="services">
-            <h2 class="section-title">Services Provided</h2>
+            <h2 class="section-title">Our Medical Specialties</h2>
             <div class="services-grid">
                 <div class="service-card">
                     <h3>Internal Medicine</h3>
@@ -542,10 +616,8 @@
                         <li>Preventative Care</li>
                         <li>Annual Wellness Visits</li>
                         <li>Women's Health</li>
-                        <li>Urgent / Same-Day Visits</li>
-                        <li>Chronic Disease & Diabetes Management</li>
-                        <li>Hypertension Management & EKG</li>
                     </ul>
+                    <a href="internal-medicine.html" class="btn btn-secondary" style="margin-top: 20px; font-size: 0.85rem; width: 100%; text-align: center;">Learn More &rarr;</a>
                 </div>
                 <div class="service-card">
                     <h3>Weight Management</h3>
@@ -554,8 +626,8 @@
                         <li>Customized Medical Strategies</li>
                         <li>Lifestyle and Dietary Guidance</li>
                         <li>Long-Term Wellness Care</li>
-                        <li>Exclusive Self-Pay/Cash Options Available</li>
                     </ul>
+                    <a href="weight-management.html" class="btn btn-secondary" style="margin-top: 20px; font-size: 0.85rem; width: 100%; text-align: center;">Learn More &rarr;</a>
                 </div>
                 <div class="service-card">
                     <h3>Optometry Eye Clinic</h3>
@@ -564,9 +636,8 @@
                         <li>Comprehensive Eye Exams</li>
                         <li>Contact Lens Fittings</li>
                         <li>Advanced Myopia Management</li>
-                        <li>Dry Eye Solutions</li>
-                        <li>Medical Eye Health Coverage</li>
                     </ul>
+                    <a href="optometry.html" class="btn btn-secondary" style="margin-top: 20px; font-size: 0.85rem; width: 100%; text-align: center;">Learn More &rarr;</a>
                 </div>
             </div>
         </section>
@@ -648,10 +719,10 @@
 
     <script>
         document.addEventListener("DOMContentLoaded", () => {
-            // Smooth click anchor links configuration
-            const navLinks = document.querySelectorAll('nav a[href^="#"]');
+            // Smooth click anchor links configuration for local links (like #providers, #portal)
+            const localLinks = document.querySelectorAll('nav a[href^="#"]');
             
-            navLinks.forEach(anchor => {
+            localLinks.forEach(anchor => {
                 anchor.addEventListener('click', function(e) {
                     e.preventDefault();
                     const targetId = this.getAttribute('href');
