@@ -1,0 +1,671 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LivingWell Clinic | Internal Medicine, Weight Management & Optometry</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <style>
+        :root {
+            --primary: #2A6F44; 
+            --primary-hover: #1E5331;
+            --secondary: #0084A9; 
+            --text-dark: #2D3748;
+            --text-light: #718096;
+            --bg-light: #F7FAFC;
+            --bg-white: #FFFFFF;
+            --border-color: #E2E8F0;
+            --shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05), 0 2px 4px -1px rgba(0, 0, 0, 0.03);
+            --transition: all 0.3s ease;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Inter', sans-serif;
+        }
+
+        body {
+            color: var(--text-dark);
+            background-color: var(--bg-light);
+            line-height: 1.6;
+        }
+
+        /* Emergency Banner */
+        .emergency-banner {
+            background-color: #E53E3E;
+            color: white;
+            text-align: center;
+            padding: 8px 16px;
+            font-size: 0.875rem;
+            font-weight: 500;
+        }
+
+        /* Header Navigation */
+        header {
+            background-color: var(--bg-white);
+            border-bottom: 1px solid var(--border-color);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: var(--shadow);
+        }
+
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 16px 24px;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            font-weight: 700;
+            font-size: 1.5rem;
+            color: var(--primary);
+            text-decoration: none;
+        }
+
+        .logo span {
+            color: var(--secondary);
+        }
+
+        nav {
+            display: flex;
+            gap: 32px;
+            align-items: center;
+        }
+
+        nav a {
+            text-decoration: none;
+            color: var(--text-dark);
+            font-weight: 500;
+            font-size: 0.95rem;
+            transition: var(--transition);
+        }
+
+        nav a:hover {
+            color: var(--primary);
+        }
+
+        .nav-phone {
+            color: var(--primary); 
+            font-weight: 600;
+        }
+
+        /* UI Buttons */
+        .btn {
+            display: inline-block;
+            padding: 10px 20px;
+            border-radius: 6px;
+            font-weight: 600;
+            text-decoration: none;
+            transition: var(--transition);
+            cursor: pointer;
+            font-size: 0.95rem;
+        }
+
+        .btn-primary {
+            background-color: var(--primary);
+            color: white;
+            border: 1px solid var(--primary);
+        }
+
+        .btn-primary:hover {
+            background-color: var(--primary-hover);
+        }
+
+        .btn-secondary {
+            background-color: transparent;
+            color: var(--secondary);
+            border: 1px solid var(--secondary);
+        }
+
+        .btn-secondary:hover {
+            background-color: #EBF8FF;
+        }
+
+        .btn-large {
+            padding: 14px 28px;
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(135deg, #F0F9FF 0%, #E6FFFA 100%);
+            padding: 80px 24px;
+            text-align: center;
+        }
+
+        .hero-content {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .hero h1 {
+            font-size: 3rem;
+            color: #1A202C;
+            margin-bottom: 20px;
+            font-weight: 700;
+            letter-spacing: -0.5px;
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            color: var(--text-light);
+            margin-bottom: 32px;
+        }
+
+        .hero-ctas {
+            display: flex;
+            justify-content: center;
+            gap: 16px;
+        }
+
+        /* Layout Grid System */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 64px 24px;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 2rem;
+            color: #1A202C;
+            margin-bottom: 48px;
+            position: relative;
+        }
+
+        .section-title::after {
+            content: '';
+            display: block;
+            width: 50px;
+            height: 3px;
+            background-color: var(--primary);
+            margin: 12px auto 0;
+            border-radius: 2px;
+        }
+
+        /* Services Grid */
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 32px;
+            margin-bottom: 64px;
+        }
+
+        .service-card {
+            background-color: var(--bg-white);
+            border-radius: 12px;
+            padding: 32px;
+            box-shadow: var(--shadow);
+            border: 1px solid var(--border-color);
+            transition: var(--transition);
+        }
+
+        .service-card:hover {
+            transform: translateY(-4px);
+            border-color: var(--primary);
+        }
+
+        .service-card h3 {
+            font-size: 1.3rem;
+            margin-bottom: 16px;
+            color: var(--primary);
+        }
+
+        .service-intro {
+            color: var(--text-light); 
+            font-size: 0.95rem;
+        }
+
+        .service-list {
+            list-style: none;
+            margin-top: 16px;
+        }
+
+        .service-list li {
+            padding: 6px 0;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            color: var(--text-dark);
+            font-size: 0.95rem;
+        }
+
+        .service-list li::before {
+            content: '✓';
+            color: var(--secondary);
+            font-weight: bold;
+        }
+
+        /* Providers Profile Cards */
+        .providers-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(450px, 1fr));
+            gap: 32px;
+            margin-bottom: 32px;
+        }
+
+        .provider-card {
+            background-color: var(--bg-white);
+            border-radius: 12px;
+            padding: 32px;
+            box-shadow: var(--shadow);
+            display: flex;
+            gap: 24px;
+            align-items: flex-start;
+            border: 1px solid var(--border-color);
+        }
+
+        .provider-img {
+            width: 120px;
+            height: 120px;
+            background-color: #EDF2F7;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            color: var(--text-light);
+            flex-shrink: 0;
+            border: 3px solid var(--border-color);
+        }
+
+        .provider-info h3 {
+            font-size: 1.4rem;
+            margin-bottom: 4px;
+        }
+
+        .provider-title {
+            color: var(--secondary);
+            font-weight: 600;
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            margin-bottom: 12px;
+        }
+
+        .provider-desc {
+            font-size: 0.95rem;
+            color: var(--text-light);
+        }
+
+        /* Patient Portal Dashboard */
+        .portal-section {
+            background-color: var(--bg-white);
+            border-radius: 12px;
+            padding: 48px;
+            box-shadow: var(--shadow);
+            margin-top: 64px;
+            border: 1px solid var(--border-color);
+        }
+
+        .portal-section h2 {
+            margin-bottom: 16px; 
+            color: #1A202C;
+        }
+
+        .portal-section p {
+            color: var(--text-light); 
+            margin-bottom: 24px;
+        }
+
+        .portal-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 48px;
+            align-items: center;
+        }
+
+        .healow-panel {
+            border-left: 1px solid var(--border-color); 
+            padding-left: 24px;
+        }
+
+        .healow-panel h3 {
+            color: var(--secondary); 
+            margin-bottom: 12px;
+        }
+
+        .healow-panel p {
+            font-size: 0.95rem; 
+            color: var(--text-light);
+        }
+
+        .healow-steps {
+            list-style: none;
+            margin-top: 20px;
+        }
+
+        .healow-steps li {
+            margin-bottom: 12px;
+            display: flex;
+            gap: 12px;
+        }
+
+        .step-number {
+            background-color: var(--secondary);
+            color: white;
+            width: 24px;
+            height: 24px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.85rem;
+            font-weight: bold;
+            flex-shrink: 0;
+        }
+
+        .code-box {
+            display: inline-block;
+            background-color: #EDF2F7;
+            padding: 2px 8px;
+            border-radius: 4px;
+            font-family: monospace;
+            font-weight: bold;
+            color: var(--text-dark);
+        }
+
+        /* Contact Details System */
+        .contact-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 32px;
+            margin-top: 64px;
+        }
+
+        .info-card {
+            background-color: var(--bg-white);
+            border-radius: 12px;
+            padding: 32px;
+            box-shadow: var(--shadow);
+            border: 1px solid var(--border-color);
+        }
+
+        .info-card h3 {
+            color: var(--primary); 
+            margin-bottom: 16px;
+        }
+
+        .info-card p {
+            margin-bottom: 12px;
+        }
+
+        .email-alert {
+            color: #E53E3E;
+        }
+
+        .notice-box {
+            background-color: var(--bg-light); 
+            padding: 16px; 
+            border-radius: 6px; 
+            font-size: 0.9rem;
+        }
+
+        .hours-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 16px;
+        }
+
+        .hours-table td {
+            padding: 8px 0;
+            border-bottom: 1px solid var(--border-color);
+            font-size: 0.95rem;
+        }
+
+        .hours-table tr:last-child td {
+            border-bottom: none;
+        }
+
+        .hours-table td:last-child {
+            text-align: right;
+            font-weight: 500;
+        }
+
+        .closed-day {
+            color: #E53E3E;
+        }
+
+        /* Footer Element */
+        footer {
+            background-color: #1A202C;
+            color: #A0AEC0;
+            padding: 40px 24px;
+            text-align: center;
+            font-size: 0.9rem;
+            margin-top: 80px;
+        }
+
+        footer p {
+            margin-bottom: 8px;
+        }
+
+        .footer-sub {
+            font-size: 0.8rem; 
+            opacity: 0.7;
+        }
+
+        /* Responsive Mobile Layout Modification */
+        @media (max-width: 768px) {
+            .nav-container {
+                flex-direction: column;
+                gap: 16px;
+            }
+            nav {
+                gap: 16px;
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+            .hero h1 {
+                font-size: 2.2rem;
+            }
+            .hero-ctas {
+                flex-direction: column;
+                gap: 12px;
+            }
+            .portal-grid, .contact-grid {
+                grid-template-columns: 1fr;
+            }
+            .healow-panel {
+                border-left: none;
+                padding-left: 0;
+                border-top: 1px solid var(--border-color);
+                padding-top: 24px;
+            }
+        }
+
+        @media (max-width: 600px) {
+            .providers-grid {
+                grid-template-columns: 1fr;
+            }
+            .provider-card {
+                flex-direction: column;
+                align-items: center;
+                text-align: center;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="emergency-banner">
+        Please use messages for non-urgent communications only. If this is an emergency, please call 911.
+    </div>
+
+    <header>
+        <div class="nav-container">
+            <a href="#" class="logo">
+                LivingWell<span>Clinic</span>
+            </a>
+            <nav>
+                <a href="#services">Services</a>
+                <a href="#providers">Our Doctors</a>
+                <a href="#portal">Patient Portal</a>
+                <a href="#contact">Hours & Location</a>
+                <a href="tel:630-242-2455" class="nav-phone">Call: 630-242-2455</a>
+                <a href="#" class="btn btn-primary">Book Appointment</a>
+            </nav>
+        </div>
+    </header>
+
+    <section class="hero">
+        <div class="hero-content">
+            <h1>Your One-Stop Clinic for Total Wellness</h1>
+            <p>Expert medical care covering Internal Medicine, Weight Management, and Optometry to serve you and your entire family safely and effectively.</p>
+            <div class="hero-ctas">
+                <a href="#" class="btn btn-primary btn-large">Book an Appointment</a>
+                <a href="#" class="btn btn-secondary btn-large">Patient Portal Login</a>
+            </div>
+        </div>
+    </section>
+
+    <main class="container">
+
+        <section id="services">
+            <h2 class="section-title">Services Provided</h2>
+            <div class="services-grid">
+                <div class="service-card">
+                    <h3>Internal Medicine</h3>
+                    <p class="service-intro">Comprehensive primary care expertly diagnosing and treating acute and chronic conditions.</p>
+                    <ul class="service-list">
+                        <li>Preventative Care</li>
+                        <li>Annual Wellness Visits</li>
+                        <li>Women's Health</li>
+                        <li>Urgent / Same-Day Visits</li>
+                        <li>Chronic Disease & Diabetes Management</li>
+                        <li>Hypertension Management & EKG</li>
+                    </ul>
+                </div>
+                <div class="service-card">
+                    <h3>Weight Management</h3>
+                    <p class="service-intro">Personalized, evidence-based weight loss programs guiding you towards lasting health improvements.</p>
+                    <ul class="service-list">
+                        <li>Customized Medical Strategies</li>
+                        <li>Lifestyle and Dietary Guidance</li>
+                        <li>Long-Term Wellness Care</li>
+                        <li>Exclusive Self-Pay/Cash Options Available</li>
+                    </ul>
+                </div>
+                <div class="service-card">
+                    <h3>Optometry Eye Clinic</h3>
+                    <p class="service-intro">Complete family vision care ensuring you see the world clearly and manage long-term ocular health.</p>
+                    <ul class="service-list">
+                        <li>Comprehensive Eye Exams</li>
+                        <li>Contact Lens Fittings</li>
+                        <li>Advanced Myopia Management</li>
+                        <li>Dry Eye Solutions</li>
+                        <li>Medical Eye Health Coverage</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <section id="providers">
+            <h2 class="section-title">Meet Our Medical Providers</h2>
+            <div class="providers-grid">
+                <div class="provider-card">
+                    <div class="provider-img">Dr. Manali</div>
+                    <div class="provider-info">
+                        <h3>Manali Patel, MD, DABOM</h3>
+                        <div class="provider-title">Internal Medicine & Obesity Medicine</div>
+                        <p class="provider-desc">Board-certified physician in Internal Medicine and a diplomate of the American Board of Obesity Medicine. Over eight years of hospital medicine experience focusing on early disease prevention, chronic illness management, and long-term healthy habits.</p>
+                    </div>
+                </div>
+                <div class="provider-card">
+                    <div class="provider-img">Dr. Nayan</div>
+                    <div class="provider-info">
+                        <h3>Nayan Patel, OD, ABO</h3>
+                        <div class="provider-title">Doctor of Optometry</div>
+                        <p class="provider-desc">Graduated from the Illinois College of Optometry and a Diplomate of the American Board of Optometry. He specializes in full-scope family eye care, ocular disease therapy, and specialty contact lenses while leading clinical research in eye care.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="portal" class="portal-section">
+            <div class="portal-grid">
+                <div>
+                    <h2>Secure Online Access via Patient Portal</h2>
+                    <p>Our patient portal provides round-the-clock access to your health info safely. View test results, check medical records, look at doctor notes, and securely exchange messages directly with your clinic team.</p>
+                    <a href="#" class="btn btn-primary">Log In To Patient Portal</a>
+                </div>
+                <div class="healow-panel">
+                    <h3>Mobile App Access via Healow™</h3>
+                    <p>Access your records seamlessly from your smartphone using these steps:</p>
+                    <ul class="healow-steps">
+                        <li><span class="step-number">1</span><div>Download the <strong>healow app</strong> from App Store or Google Play.</div></li>
+                        <li><span class="step-number">2</span><div>Search our clinic using our unique code: <span class="code-box">BHBIDD</span></div></li>
+                        <li><span class="step-number">3</span><div>Log in using your secure portal username and password.</div></li>
+                        <li><span class="step-number">4</span><div>Set a quick PIN for fast, safe mobile sign-ins.</div></li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <section id="contact" class="contact-grid">
+            <div class="info-card">
+                <h3>Contact Information</h3>
+                <p><strong>Address:</strong><br>473 W Army Trail Rd # 105, Bloomingdale, IL 60108</p>
+                <p><strong>Phone:</strong> 630-242-2455</p>
+                <p><strong>Fax:</strong> 630-242-2435</p>
+                <p><strong>Email:</strong> livingwellclinicpllc@gmail.com<br><small class="email-alert">(Please do not share private health/HIPAA info via email)</small></p>
+                <div class="notice-box">
+                    <strong>Notice:</strong> Most major insurances accepted. Cancellation/No-show fee applies unless modified 48 hours prior to appointment.
+                </div>
+            </div>
+
+            <div class="info-card">
+                <h3>Clinic Office Hours</h3>
+                <table class="hours-table">
+                    <tr><td>Monday</td><td>9:00 AM – 4:30 PM</td></tr>
+                    <tr><td>Tuesday</td><td>9:00 AM – 4:30 PM</td></tr>
+                    <tr><td>Wednesday</td><td>9:00 AM – 4:30 PM</td></tr>
+                    <tr><td>Thursday</td><td>9:00 AM – 4:30 PM</td></tr>
+                    <tr><td>Friday</td><td>9:00 AM – 4:30 PM</td></tr>
+                    <tr><td>Saturday</td><td>9:00 AM – 12:00 PM</td></tr>
+                    <tr><td>Sunday</td><td class="closed-day">Closed</td></tr>
+                </table>
+            </div>
+        </section>
+
+    </main>
+
+    <footer>
+        <p>&copy; 2026 LivingWell Clinic PLLC. All Rights Reserved.</p>
+        <p class="footer-sub">Providing high-quality Internal Medicine, Weight Management, and Optometry services.</p>
+    </footer>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", () => {
+            // Smooth click anchor links configuration
+            const navLinks = document.querySelectorAll('nav a[href^="#"]');
+            
+            navLinks.forEach(anchor => {
+                anchor.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    const targetId = this.getAttribute('href');
+                    const targetElement = document.querySelector(targetId);
+                    
+                    if (targetElement) {
+                        targetElement.scrollIntoView({
+                            behavior: 'smooth',
+                            block: 'start'
+                        });
+                    }
+                });
+            });
+        });
+    </script>
+</body>
+</html>
