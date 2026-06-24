@@ -257,6 +257,7 @@
             display: flex;
             flex-direction: column;
             gap: 8px;
+            text-decoration: none;
         }
 
         .feature-icon {
@@ -289,15 +290,77 @@
         .main-container {
             max-width: 1300px;
             margin: 0 auto;
-            padding: 80px 40px;
+            padding: 40px 40px 80px 40px;
         }
 
         .section-title {
             font-family: 'Playfair Display', serif;
             font-size: 2.5rem;
             color: var(--primary);
-            margin-bottom: 48px;
+            margin-bottom: 24px;
             text-align: center;
+        }
+        
+        .section-subtitle {
+            text-align: center;
+            color: var(--text-light);
+            max-width: 700px;
+            margin: 0 auto 48px auto;
+            font-size: 1.1rem;
+        }
+
+        /* Services Single-Page Content Styling */
+        .services-scroll-area {
+            margin-bottom: 80px;
+        }
+
+        .service-detail-card {
+            background: white;
+            border-radius: 16px;
+            padding: 50px;
+            box-shadow: var(--shadow);
+            margin-bottom: 40px;
+            border: 1px solid rgba(0,0,0,0.01);
+        }
+
+        .service-detail-card h3 {
+            font-family: 'Playfair Display', serif;
+            font-size: 2rem;
+            margin-bottom: 16px;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+        
+        .service-detail-card.med h3 { color: var(--primary); }
+        .service-detail-card.weight h3 { color: var(--secondary); }
+        .service-detail-card.opt h3 { color: var(--primary); }
+
+        .service-detail-card p {
+            font-size: 1.05rem;
+            color: var(--text-light);
+            margin-bottom: 20px;
+            max-width: 900px;
+        }
+
+        .service-tags {
+            display: flex;
+            gap: 12px;
+            flex-wrap: wrap;
+        }
+
+        .service-tags span {
+            background-color: #F0F7F4;
+            color: var(--primary);
+            padding: 6px 16px;
+            border-radius: 30px;
+            font-size: 0.85rem;
+            font-weight: 600;
+        }
+        
+        .service-detail-card.weight .service-tags span {
+            background-color: #EBF7FA;
+            color: var(--secondary);
         }
 
         /* Providers Presentation Grid */
@@ -324,7 +387,7 @@
             height: 140px;
             background-color: #E6F4F0;
             border-radius: 50%;
-            object-fit: cover; /* Keeps image correctly oriented inside circles */
+            object-fit: cover;
             flex-shrink: 0;
             border: 4px solid white;
             box-shadow: 0 8px 20px rgba(0,0,0,0.05);
@@ -427,9 +490,9 @@
                 <div class="dropdown">
                     <span class="dropdown-toggle">Services ▾</span>
                     <ul class="dropdown-menu">
-                        <li><a href="internal-medicine.html">Internal Medicine</a></li>
-                        <li><a href="optometry.html">Optometry Eye Clinic</a></li>
-                        <li><a href="weight-management.html">Weight Management</a></li>
+                        <li><a href="#internal-medicine">Internal Medicine</a></li>
+                        <li><a href="#optometry">Optometry Eye Clinic</a></li>
+                        <li><a href="#weight-management">Weight Management</a></li>
                     </ul>
                 </div>
                 <a href="https://yourstore.wewillship.com/?account_id=5667" target="_blank">Store</a>
@@ -449,33 +512,80 @@
                 <a href="http://healow.com/apps/practice/livingwell-clinic-pllc-31701?v=2" target="_blank" class="btn btn-secondary">Schedule an Appointment</a>
                 
                 <div class="hero-features">
-                    <div class="feature-item">
+                    <a href="#internal-medicine" class="feature-item">
                         <div class="feature-icon primary">
                             <svg viewBox="0 0 24 24"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></svg>
                         </div>
                         <h3>Internal Medicine</h3>
                         <p>Comprehensive care for a healthier you.</p>
-                    </div>
-                    <div class="feature-item">
+                    </a>
+                    <a href="#weight-management" class="feature-item">
                         <div class="feature-icon secondary">
                             <svg viewBox="0 0 24 24"><rect x="5" y="2" width="14" height="20" rx="2"/><path d="M12 18h.01"/></svg>
                         </div>
                         <h3>Weight Management</h3>
                         <p>Personalized plans for lasting results.</p>
-                    </div>
-                    <div class="feature-item">
+                    </a>
+                    <a href="#optometry" class="feature-item">
                         <div class="feature-icon primary">
                             <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="3"/><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/></svg>
                         </div>
                         <h3>Optometry</h3>
                         <p>Clear vision for a better tomorrow.</p>
-                    </div>
+                    </a>
                 </div>
             </div>
         </div>
     </section>
 
     <main class="main-container">
+        
+        <section class="services-scroll-area">
+            <h2 class="section-title">Our Medical Services</h2>
+            <p class="section-subtitle">We offer customized clinical pathways addressing whole-body disease monitoring, preventative maintenance, eye care, and targeted health solutions.</p>
+            
+            <div id="internal-medicine" class="service-detail-card med">
+                <h3>
+                    <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="stroke:var(--primary);"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></svg>
+                    Internal Medicine
+                </h3>
+                <p>Our Internal Medicine practice is dedicated to the prevention, diagnosis, and treatment of adult illnesses. We focus on managing chronic conditions such as hypertension, diabetes, and heart disease, while building a foundation for lifelong wellness through routine health assessments.</p>
+                <div class="service-tags">
+                    <span>Chronic Disease Management</span>
+                    <span>Preventative Screenings</span>
+                    <span>Annual Wellness Exams</span>
+                    <span>Adult Primary Care</span>
+                </div>
+            </div>
+
+            <div id="weight-management" class="service-detail-card weight">
+                <h3>
+                    <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="stroke:var(--secondary);"><rect x="5" y="2" width="14" height="20" rx="2"/><path d="M12 18h.01"/></svg>
+                    Medical Weight Management
+                </h3>
+                <p>Led by board-certified expertise, our weight management plans are built entirely around your metabolic health. We blend medical monitoring with nutritional logic and lifestyle adjustment tracks to ensure sustainable, long-term healthy outcomes.</p>
+                <div class="service-tags">
+                    <span>Metabolic Testing</span>
+                    <span>Physician-Supervised Programs</span>
+                    <span>Nutritional Counseling</span>
+                    <span>Lifestyle Optimization</span>
+                </div>
+            </div>
+
+            <div id="optometry" class="service-detail-card opt">
+                <h3>
+                    <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="stroke:var(--primary);"><circle cx="12" cy="12" r="3"/><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/></svg>
+                    Optometry Eye Clinic
+                </h3>
+                <p>From comprehensive vision profiles to advanced therapeutic diagnosis for ocular diseases, our eye care department provides full-scope family vision tracking. We combine high-end diagnostic tools with custom prescription lens fitting.</p>
+                <div class="service-tags">
+                    <span>Comprehensive Eye Exams</span>
+                    <span>Prescription Eyewear</span>
+                    <span>Ocular Disease Screening</span>
+                    <span>Contact Lens Fitting</span>
+                </div>
+            </div>
+        </section>
         
         <section id="providers">
             <h2 class="section-title">Meet Our Medical Providers</h2>
@@ -525,7 +635,7 @@
     </footer>
 
     <script>
-        document.querySelectorAll('nav a[href^="#"]').forEach(anchor => {
+        document.querySelectorAll('nav a[href^="#"], .hero-features a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function(e) {
                 e.preventDefault();
                 const targetId = this.getAttribute('href');
