@@ -71,7 +71,7 @@
         }
 
         .logo-img {
-            height: 50px; /* Constrains logo height cleanly in header */
+            height: 65px; /* Increased height to make the logo a little bigger */
             width: auto;
             display: block;
         }
@@ -187,7 +187,7 @@
         /* Hero Section */
         .hero {
             background: linear-gradient(135deg, #F0F9FF 0%, #E6FFFA 100%);
-            padding: 80px 24px;
+            padding: 60px 24px 80px 24px;
             text-align: center;
         }
 
@@ -196,17 +196,25 @@
             margin: 0 auto;
         }
 
-        .hero h1 {
-            font-size: 3rem;
-            color: #1A202C;
-            margin-bottom: 20px;
-            font-weight: 700;
-            letter-spacing: -0.5px;
+        /* Large Center Logo styling */
+        .hero-center-logo {
+            max-width: 550px;
+            width: 100%;
+            height: auto;
+            margin: 0 auto 24px auto;
+            display: block;
         }
 
         .hero p {
             font-size: 1.2rem;
             color: var(--text-light);
+            margin-bottom: 12px;
+        }
+
+        .hero-phone {
+            font-size: 1.5rem;
+            font-weight: 600;
+            color: var(--text-dark);
             margin-bottom: 32px;
         }
 
@@ -594,11 +602,11 @@
 
     <section class="hero">
         <div class="hero-content">
-            <h1>Your One-Stop Clinic for Total Wellness</h1>
-            <p>Expert medical care covering Internal Medicine, Weight Management, and Optometry to serve you and your entire family safely and effectively.</p>
+            <img src="livingwelllogo.jpg" alt="LivingWell Clinic Logo" class="hero-center-logo">
+            <div class="hero-phone">Call: 630-242-2455</div>
             <div class="hero-ctas">
-                <a href="http://healow.com/apps/practice/livingwell-clinic-pllc-31701?v=2" target="_blank" class="btn btn-primary btn-large">Book an Appointment</a>
                 <a href="https://mycw152.ecwcloud.com/portal21271/jsp/100mp/login_otp.jsp" target="_blank" class="btn btn-secondary btn-large">Patient Portal Login</a>
+                <a href="http://healow.com/apps/practice/livingwell-clinic-pllc-31701?v=2" target="_blank" class="btn btn-primary btn-large">Book an Appointment</a>
             </div>
         </div>
     </section>
