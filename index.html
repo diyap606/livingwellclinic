@@ -3,501 +3,117 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>LivingWell Clinic | Internal Medicine, Weight Management & Optometry</title>
+    <title>LivingWell Clinic | Interactive Health Hub</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,600;1,400&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
     
     <style>
         :root {
             --primary: #2A6F44; 
-            --primary-hover: #1E5331;
             --secondary: #0084A9; 
-            --secondary-hover: #006885;
             --text-dark: #1A251E;
             --text-light: #4A5D50;
-            --bg-light: #E0F2F1;
             --bg-white: #FFFFFF;
             --border-color: rgba(42, 111, 68, 0.15);
             --shadow: 0 10px 30px rgba(0, 0, 0, 0.04);
             --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
         }
 
-        /* Smooth scrolling setup */
-        html {
-            scroll-behavior: smooth;
-        }
+        html { scroll-behavior: smooth; }
+        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Plus Jakarta Sans', sans-serif; }
+        body { color: var(--text-dark); background-color: #F4FBF9; line-height: 1.6; }
 
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            font-family: 'Plus Jakarta Sans', sans-serif;
-        }
-
-        body {
-            color: var(--text-dark);
-            background-color: #F4FBF9;
-            line-height: 1.6;
-        }
-
-        /* Emergency Banner */
-        .emergency-banner {
-            background-color: #D32F2F;
-            color: white;
-            text-align: center;
-            padding: 10px 16px;
-            font-size: 0.85rem;
-            font-weight: 600;
-            letter-spacing: 0.3px;
-        }
-
-        /* Clean Header Navigation */
-        header {
-            background-color: #F4FBF9;
-            position: sticky;
-            top: 0; 
-            left: 0;
-            width: 100%;
-            z-index: 1000;
-            border-bottom: 1px solid var(--border-color);
-        }
-
-        .nav-container {
-            max-width: 1300px;
-            margin: 0 auto;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 16px 40px;
-        }
-
-        .logo {
-            display: flex;
-            align-items: center;
-            text-decoration: none;
-        }
-
-        .logo-img {
-            height: 75px; 
-            width: auto;
-            display: block;
-        }
-
-        nav {
-            display: flex;
-            gap: 28px;
-            align-items: center;
-        }
-
-        nav > a, .dropdown-toggle {
-            text-decoration: none;
-            color: var(--text-dark);
-            font-weight: 600;
-            font-size: 0.95rem;
-            transition: var(--transition);
-            cursor: pointer;
-            display: flex;
-            align-items: center;
-            gap: 4px;
-        }
-
-        nav > a:hover, .dropdown:hover .dropdown-toggle {
-            color: var(--primary);
-        }
-
-        /* Dropdown Menu Layout */
-        .dropdown {
-            position: relative;
-            padding: 10px 0;
-        }
-
-        .dropdown-menu {
-            position: absolute;
-            top: 100%;
-            left: 50%;
-            transform: translateX(-50%) translateY(10px);
-            background-color: var(--bg-white);
-            min-width: 220px;
-            border-radius: 12px;
-            box-shadow: 0 20px 40px rgba(0,0,0,0.08);
-            opacity: 0;
-            visibility: hidden;
-            transition: var(--transition);
-            list-style: none;
-            overflow: hidden;
-            padding: 8px 0;
-        }
-
-        .dropdown:hover .dropdown-menu {
-            opacity: 1;
-            visibility: visible;
-            transform: translateX(-50%) translateY(0);
-        }
-
-        .dropdown-menu li a {
-            display: block;
-            padding: 12px 20px;
-            color: var(--text-dark);
-            text-decoration: none;
-            font-size: 0.9rem;
-            font-weight: 500;
-            transition: var(--transition);
-        }
-
-        .dropdown-menu li a:hover {
-            background-color: #F0F7F4;
-            color: var(--primary);
-        }
-
-        /* Highlighted Contact Us Link Button styling */
-        .nav-contact-btn {
-            color: var(--primary);
-            font-weight: 700;
-            border: 2px solid var(--primary);
-            padding: 8px 16px;
-            border-radius: 6px;
-        }
-
-        .nav-contact-btn:hover {
-            background-color: var(--primary);
-            color: white;
-        }
-
-        /* Buttons matching the layout */
-        .btn {
-            display: inline-block;
-            padding: 14px 28px;
-            border-radius: 8px;
-            font-weight: 700;
-            text-decoration: none;
-            transition: var(--transition);
-            cursor: pointer;
-            font-size: 0.95rem;
-            border: none;
-        }
-
-        .btn-secondary {
-            background-color: var(--secondary);
-            color: white;
-            box-shadow: 0 4px 14px rgba(0, 132, 169, 0.3);
-        }
-
-        .btn-secondary:hover {
-            background-color: var(--secondary-hover);
-            transform: translateY(-2px);
-            box-shadow: 0 6px 20px rgba(0, 132, 169, 0.4);
-        }
-
-        /* Integrated Mockup Background Styling */
-        .hero-section {
-            position: relative;
-            min-height: calc(100vh - 150px);
-            background-color: #CBEAE7;
-            background-image: url('image_dd747d.png');
-            background-size: contain;
-            background-position: right center;
-            background-repeat: no-repeat;
-            display: flex;
-            align-items: center;
-            padding: 60px 40px;
-            overflow: hidden;
-        }
-
-        .hero-container {
-            width: 100%;
-            max-width: 1300px;
-            margin: 0 auto;
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            position: relative;
-            z-index: 2;
-        }
-
-        .hero-left {
-            max-width: 560px;
-            padding-right: 20px;
-            align-self: center;
-        }
-
-        /* Elegant Split Typography Setup */
-        .hero-left h1 {
-            font-family: 'Playfair Display', serif;
-            font-size: 5rem;
-            line-height: 1.1;
-            color: var(--primary);
-            margin-bottom: 8px;
-            font-weight: 600;
-        }
-
-        .hero-left h1 span {
-            color: var(--secondary);
-            display: block;
-        }
-
-        .hero-left p {
-            font-size: 1.25rem;
-            color: var(--text-light);
-            margin-bottom: 32px;
-            font-weight: 400;
-            line-height: 1.5;
-        }
-
-        /* Grid Feature Cards Component */
-        .hero-features {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 24px;
-            margin-top: 56px;
-            border-top: 1px solid rgba(42, 111, 68, 0.15);
-            padding-top: 32px;
-        }
-
-        .feature-item {
-            display: flex;
-            flex-direction: column;
-            gap: 8px;
-            text-decoration: none;
-        }
-
-        .feature-icon {
-            width: 32px;
-            height: 32px;
-            margin-bottom: 4px;
-        }
-
-        .feature-icon.primary svg { fill: none; stroke: var(--primary); stroke-width: 2; }
-        .feature-icon.secondary svg { fill: none; stroke: var(--secondary); stroke-width: 2; }
-
-        .feature-item h3 {
-            font-size: 1.05rem;
-            font-weight: 700;
-            color: var(--primary);
-        }
+        .emergency-banner { background-color: #D32F2F; color: white; text-align: center; padding: 10px; font-size: 0.85rem; font-weight: 600; }
         
-        .feature-item:nth-child(2) h3 {
-            color: var(--secondary);
-        }
-
-        .feature-item p {
-            font-size: 0.9rem;
-            color: var(--text-light);
-            margin-bottom: 0;
-            line-height: 1.4;
-        }
-
-        /* Main Context Standard Sections */
-        .main-container {
-            max-width: 1300px;
-            margin: 0 auto;
-            padding: 40px 40px 80px 40px;
-        }
-
-        .section-title {
-            font-family: 'Playfair Display', serif;
-            font-size: 2.5rem;
-            color: var(--primary);
-            margin-bottom: 24px;
-            text-align: center;
-        }
+        header { background-color: #F4FBF9; position: sticky; top: 0; width: 100%; z-index: 1000; border-bottom: 1px solid var(--border-color); }
+        .nav-container { max-width: 1300px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; padding: 16px 40px; }
+        .logo-img { height: 75px; width: auto; }
+        nav { display: flex; gap: 28px; align-items: center; }
+        nav > a, .dropdown-toggle { text-decoration: none; color: var(--text-dark); font-weight: 600; font-size: 0.95rem; cursor: pointer; display: flex; align-items: center; gap: 4px; }
+        nav > a:hover { color: var(--primary); }
         
-        .section-subtitle {
-            text-align: center;
-            color: var(--text-light);
-            max-width: 700px;
-            margin: 0 auto 48px auto;
-            font-size: 1.1rem;
-        }
+        .nav-contact-btn { color: var(--primary); font-weight: 700; border: 2px solid var(--primary); padding: 8px 16px; border-radius: 6px; text-decoration: none; transition: var(--transition); }
+        .nav-contact-btn:hover { background-color: var(--primary); color: white; }
 
-        /* Services Single-Page Content Styling */
-        .services-scroll-area {
-            margin-bottom: 80px;
-        }
+        .hero-section { min-height: 70vh; background-color: #CBEAE7; background-image: url('image_dd747d.png'); background-size: contain; background-position: right center; background-repeat: no-repeat; display: flex; align-items: center; padding: 60px 40px; }
+        .hero-left h1 { font-family: 'Playfair Display', serif; font-size: 4.5rem; line-height: 1.1; color: var(--primary); margin-bottom: 12px; }
+        .hero-left h1 span { color: var(--secondary); display: block; }
+        .hero-left p { font-size: 1.25rem; color: var(--text-light); margin-bottom: 32px; max-width: 500px; }
 
-        .service-detail-card {
-            background: white;
-            border-radius: 16px;
-            padding: 50px;
-            box-shadow: var(--shadow);
-            margin-bottom: 40px;
-            border: 1px solid rgba(0,0,0,0.01);
-        }
+        .btn { display: inline-block; padding: 14px 28px; border-radius: 8px; font-weight: 700; text-decoration: none; transition: var(--transition); border: none; cursor: pointer; }
+        .btn-secondary { background-color: var(--secondary); color: white; box-shadow: 0 4px 14px rgba(0, 132, 169, 0.3); }
+        .btn-secondary:hover { background-color: #006885; transform: translateY(-2px); }
 
-        .service-detail-card h3 {
-            font-family: 'Playfair Display', serif;
-            font-size: 2rem;
-            margin-bottom: 16px;
-            display: flex;
-            align-items: center;
-            gap: 12px;
-        }
-        
-        .service-detail-card.med h3 { color: var(--primary); }
-        .service-detail-card.weight h3 { color: var(--secondary); }
-        .service-detail-card.opt h3 { color: var(--primary); }
+        .main-container { max-width: 1300px; margin: 0 auto; padding: 60px 40px; }
+        .section-title { font-family: 'Playfair Display', serif; font-size: 2.5rem; color: var(--primary); margin-bottom: 32px; text-align: center; }
 
-        .service-detail-card p {
-            font-size: 1.05rem;
-            color: var(--text-light);
-            margin-bottom: 20px;
-            max-width: 900px;
-        }
+        /* INTERACTIVE CONTROL DASHBOARD */
+        .controls-hub { background: white; padding: 24px; border-radius: 16px; box-shadow: var(--shadow); margin-bottom: 40px; display: flex; flex-wrap: wrap; gap: 20px; justify-content: space-between; align-items: center; }
+        .search-input { padding: 12px 20px; border: 2px solid var(--border-color); border-radius: 8px; width: 320px; font-size: 0.95rem; outline: none; transition: var(--transition); }
+        .search-input:focus { border-color: var(--primary); }
+        .filter-tags { display: flex; gap: 12px; }
+        .filter-btn { padding: 8px 18px; border: none; background: #EDF2F0; color: var(--text-light); font-weight: 600; border-radius: 20px; cursor: pointer; transition: var(--transition); }
+        .filter-btn.active, .filter-btn:hover { background: var(--primary); color: white; }
 
-        .service-tags {
-            display: flex;
-            gap: 12px;
-            flex-wrap: wrap;
-        }
+        /* SERVICES GRID DOM AREA */
+        .services-container { display: grid; grid-template-columns: 1fr; gap: 24px; margin-bottom: 80px; }
+        .service-card { background: white; border-radius: 16px; padding: 40px; box-shadow: var(--shadow); border-left: 5px solid var(--primary); transition: var(--transition); }
+        .service-card.lifestyle { border-left-color: var(--secondary); }
+        .service-card h3 { font-family: 'Playfair Display', serif; font-size: 1.8rem; margin-bottom: 12px; display: flex; align-items: center; gap: 12px; }
+        .service-card p { color: var(--text-light); font-size: 1.05rem; margin-bottom: 20px; }
+        .badge-box { display: flex; gap: 8px; flex-wrap: wrap; }
+        .badge { background: #F0F7F4; color: var(--primary); padding: 6px 14px; border-radius: 20px; font-size: 0.85rem; font-weight: 600; }
+        .service-card.lifestyle .badge { background: #EBF7FA; color: var(--secondary); }
 
-        .service-tags span {
-            background-color: #F0F7F4;
-            color: var(--primary);
-            padding: 6px 16px;
-            border-radius: 30px;
-            font-size: 0.85rem;
-            font-weight: 600;
-        }
-        
-        .service-detail-card.weight .service-tags span {
-            background-color: #EBF7FA;
-            color: var(--secondary);
-        }
+        /* VIRTUAL TRIAGE CONTAINER */
+        .triage-box { background: white; border-radius: 20px; padding: 40px; box-shadow: var(--shadow); margin-bottom: 80px; border: 1px solid var(--border-color); }
+        .triage-step { display: none; }
+        .triage-step.active { display: block; }
+        .triage-options { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-top: 24px; }
+        .option-card { padding: 20px; border: 2px solid #EDF2F0; border-radius: 12px; cursor: pointer; font-weight: 600; text-align: center; transition: var(--transition); }
+        .option-card:hover { border-color: var(--secondary); background: #F4FBF9; }
 
-        /* Providers Presentation Grid */
-        .providers-grid {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 40px;
-            margin-bottom: 80px;
-        }
+        /* ACCORDION FAQ MODULE */
+        .faq-wrapper { max-width: 800px; margin: 0 auto 80px auto; }
+        .faq-item { background: white; margin-bottom: 12px; border-radius: 8px; box-shadow: var(--shadow); overflow: hidden; }
+        .faq-trigger { width: 100%; padding: 20px; text-align: left; background: none; border: none; font-size: 1.1rem; font-weight: 600; color: var(--text-dark); cursor: pointer; display: flex; justify-content: space-between; }
+        .faq-content { max-height: 0; padding: 0 20px; color: var(--text-light); transition: all 0.3s ease; overflow: hidden; }
 
-        .provider-card {
-            background: white;
-            border-radius: 16px;
-            padding: 40px;
-            box-shadow: var(--shadow);
-            display: flex;
-            gap: 32px;
-            align-items: flex-start;
-            border: 1px solid rgba(0,0,0,0.02);
-        }
+        /* DOCTORS PRESENTATION GRID */
+        .providers-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 40px; margin-bottom: 80px; }
+        .provider-card { background: white; border-radius: 16px; padding: 40px; box-shadow: var(--shadow); display: flex; gap: 32px; align-items: flex-start; }
+        .provider-avatar { width: 140px; height: 140px; border-radius: 50%; object-fit: cover; border: 4px solid white; box-shadow: 0 8px 20px rgba(0,0,0,0.05); }
+        .provider-details h2 { font-family: 'Playfair Display', serif; font-size: 1.8rem; }
+        .provider-tag { color: var(--secondary); font-weight: 700; font-size: 0.85rem; text-transform: uppercase; margin-bottom: 16px; }
 
-        .provider-avatar {
-            width: 140px;
-            height: 140px;
-            background-color: #E6F4F0;
-            border-radius: 50%;
-            object-fit: cover;
-            flex-shrink: 0;
-            border: 4px solid white;
-            box-shadow: 0 8px 20px rgba(0,0,0,0.05);
-        }
-
-        .provider-details h2 {
-            font-family: 'Playfair Display', serif;
-            font-size: 1.8rem;
-            color: var(--text-dark);
-            margin-bottom: 4px;
-        }
-
-        .provider-tag {
-            color: var(--secondary);
-            font-weight: 700;
-            font-size: 0.85rem;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            margin-bottom: 16px;
-        }
-
-        /* Layout Block Modules */
-        .info-block-grid {
-            display: grid;
-            grid-template-columns: 1.2fr 0.8fr;
-            gap: 40px;
-            margin-top: 60px;
-        }
-
-        .content-card {
-            background: white;
-            padding: 40px;
-            border-radius: 16px;
-            box-shadow: var(--shadow);
-        }
-
-        .hours-table {
-            width: 100%;
-            border-collapse: collapse;
-        }
-
-        .hours-table td {
-            padding: 12px 0;
-            border-bottom: 1px solid #EDF2F0;
-        }
-
-        .hours-table tr:last-child td { border: none; }
+        .info-block-grid { display: grid; grid-template-columns: 1.2fr 0.8fr; gap: 40px; }
+        .content-card { background: white; padding: 40px; border-radius: 16px; box-shadow: var(--shadow); }
+        .hours-table { width: 100%; border-collapse: collapse; }
+        .hours-table td { padding: 12px 0; border-bottom: 1px solid #EDF2F0; }
         .hours-table td:last-child { text-align: right; font-weight: 600; }
 
-        footer {
-            background-color: #111A14;
-            color: #8fa095;
-            padding: 40px;
-            text-align: center;
-            font-size: 0.95rem;
-        }
+        footer { background-color: #111A14; color: #8fa095; padding: 40px; text-align: center; }
 
-        /* Fully Fluid Responsive Framework Adjustments */
-        @media (max-width: 1100px) {
-            .hero-section {
-                background-size: cover;
-                background-position: 75% center;
-            }
-            .hero-container {
-                grid-template-columns: 1fr;
-            }
-            .hero-left {
-                max-width: 600px;
-                background: rgba(244, 251, 249, 0.85);
-                padding: 40px;
-                border-radius: 20px;
-                backdrop-filter: blur(10px);
-            }
-        }
-
-        @media (max-width: 768px) {
-            header { position: static; background: white; }
-            .nav-container { flex-direction: column; gap: 20px; padding: 20px; }
-            nav { flex-wrap: wrap; justify-content: center; gap: 16px; }
-            .hero-section { padding-top: 40px; min-height: auto; }
-            .hero-left h1 { font-size: 3.5rem; }
-            .hero-features { grid-template-columns: 1fr; gap: 24px; }
+        @media (max-width: 900px) {
+            .hero-section { background-image: none; }
             .providers-grid, .info-block-grid { grid-template-columns: 1fr; }
-            .provider-card { flex-direction: column; align-items: center; text-align: center; }
+            .triage-options { grid-template-columns: 1fr; }
         }
     </style>
 </head>
 <body>
 
-    <div class="emergency-banner">
-        Please use messages for non-urgent communications only. If this is an emergency, please call 911.
-    </div>
+    <div class="emergency-banner">Please use messages for non-urgent communications only. For medical emergencies, call 911.</div>
 
     <header id="main-header">
         <div class="nav-container">
-            <a href="#" class="logo">
-                <img src="livingwelllogo.jpg" alt="LivingWell Clinic" class="logo-img">
-            </a>
+            <a href="#" class="logo"><img src="livingwelllogo.jpg" alt="LivingWell Clinic" class="logo-img"></a>
             <nav>
-                <div class="dropdown">
-                    <span class="dropdown-toggle">Services ▾</span>
-                    <ul class="dropdown-menu">
-                        <li><a href="#internal-medicine">Internal Medicine</a></li>
-                        <li><a href="#optometry">Optometry Eye Clinic</a></li>
-                        <li><a href="#weight-management">Weight Management</a></li>
-                    </ul>
-                </div>
-                <a href="https://yourstore.wewillship.com/?account_id=5667" target="_blank">Store</a>
+                <a href="#services-hub">Services Explorer</a>
+                <a href="#interactive-triage">Care Finder</a>
                 <a href="#providers">Our Doctors</a>
-                <a href="https://mycw152.ecwcloud.com/portal21271/jsp/100mp/login_otp.jsp" target="_blank">Patient Portal Login</a>
+                <a href="#faq-section">FAQs</a>
                 <a href="#contact" class="nav-contact-btn">Contact Us</a>
             </nav>
         </div>
@@ -507,91 +123,64 @@
         <div class="hero-container">
             <div class="hero-left">
                 <h1>Live Well.<span>Be Well.</span></h1>
-                <p>Compassionate care for your whole health. Internal medicine, weight management, and optometry — all in one place.</p>
-                
-                <a href="http://healow.com/apps/practice/livingwell-clinic-pllc-31701?v=2" target="_blank" class="btn btn-secondary">Schedule an Appointment</a>
-                
-                <div class="hero-features">
-                    <a href="#internal-medicine" class="feature-item">
-                        <div class="feature-icon primary">
-                            <svg viewBox="0 0 24 24"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></svg>
-                        </div>
-                        <h3>Internal Medicine</h3>
-                        <p>Comprehensive care for a healthier you.</p>
-                    </a>
-                    <a href="#weight-management" class="feature-item">
-                        <div class="feature-icon secondary">
-                            <svg viewBox="0 0 24 24"><rect x="5" y="2" width="14" height="20" rx="2"/><path d="M12 18h.01"/></svg>
-                        </div>
-                        <h3>Weight Management</h3>
-                        <p>Personalized plans for lasting results.</p>
-                    </a>
-                    <a href="#optometry" class="feature-item">
-                        <div class="feature-icon primary">
-                            <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="3"/><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/></svg>
-                        </div>
-                        <h3>Optometry</h3>
-                        <p>Clear vision for a better tomorrow.</p>
-                    </a>
-                </div>
+                <p>An interactive ecosystem built around your family health needs. Explore services dynamically below.</p>
+                <a href="#interactive-triage" class="btn btn-secondary">Find Your Clinic Path</a>
             </div>
         </div>
     </section>
 
     <main class="main-container">
-        
-        <section class="services-scroll-area">
-            <h2 class="section-title">Our Medical Services</h2>
-            <p class="section-subtitle">We offer customized clinical pathways addressing whole-body disease monitoring, preventative maintenance, eye care, and targeted health solutions.</p>
+
+        <section id="services-hub" style="margin-bottom: 60px;">
+            <h2 class="section-title">Interactive Services Explorer</h2>
             
-            <div id="internal-medicine" class="service-detail-card med">
-                <h3>
-                    <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="stroke:var(--primary);"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></svg>
-                    Internal Medicine
-                </h3>
-                <p>Our Internal Medicine practice is dedicated to the prevention, diagnosis, and treatment of adult illnesses. We focus on managing chronic conditions such as hypertension, diabetes, and heart disease, while building a foundation for lifelong wellness through routine health assessments.</p>
-                <div class="service-tags">
-                    <span>Chronic Disease Management</span>
-                    <span>Preventative Screenings</span>
-                    <span>Annual Wellness Exams</span>
-                    <span>Adult Primary Care</span>
+            <div class="controls-hub">
+                <input type="text" id="searchBar" class="search-input" placeholder="Search symptoms, fields, keywords...">
+                <div class="filter-tags">
+                    <button class="filter-btn active" onclick="filterCategory('all', this)">All Sectors</button>
+                    <button class="filter-btn" onclick="filterCategory('medical', this)">Medical Care</button>
+                    <button class="filter-btn" onclick="filterCategory('lifestyle', this)">Weight Optimization</button>
                 </div>
             </div>
 
-            <div id="weight-management" class="service-detail-card weight">
-                <h3>
-                    <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="stroke:var(--secondary);"><rect x="5" y="2" width="14" height="20" rx="2"/><path d="M12 18h.01"/></svg>
-                    Medical Weight Management
-                </h3>
-                <p>Led by board-certified expertise, our weight management plans are built entirely around your metabolic health. We blend medical monitoring with nutritional logic and lifestyle adjustment tracks to ensure sustainable, long-term healthy outcomes.</p>
-                <div class="service-tags">
-                    <span>Metabolic Testing</span>
-                    <span>Physician-Supervised Programs</span>
-                    <span>Nutritional Counseling</span>
-                    <span>Lifestyle Optimization</span>
+            <div id="servicesGrid" class="services-container">
+                </div>
+        </section>
+
+        <section id="interactive-triage" class="triage-box">
+            <h2 class="section-title" style="text-align: left; margin-bottom: 12px;">Where Should You Start?</h2>
+            <p style="color: var(--text-light); margin-bottom: 24px;">Complete this diagnostic mini-wizard to see what appointment path fits your timeline.</p>
+            
+            <div id="step-1" class="triage-step active">
+                <h3>What primary medical goal can we help you solve today?</h3>
+                <div class="triage-options">
+                    <div class="option-card" onclick="goToStep(2, 'Internal Medicine Support')">Managing chronic conditions / routine adult checkups</div>
+                    <div class="option-card" onclick="goToStep(2, 'Weight Program Tracking')">Sustainable weight loss, metabolic health programs</div>
+                    <div class="option-card" onclick="goToStep(2, 'Comprehensive Optometry Track')">Vision issues, specialty contacts, macular health tests</div>
                 </div>
             </div>
 
-            <div id="optometry" class="service-detail-card opt">
-                <h3>
-                    <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="stroke:var(--primary);"><circle cx="12" cy="12" r="3"/><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/></svg>
-                    Optometry Eye Clinic
-                </h3>
-                <p>From comprehensive vision profiles to advanced therapeutic diagnosis for ocular diseases, our eye care department provides full-scope family vision tracking. We combine high-end diagnostic tools with custom prescription lens fitting.</p>
-                <div class="service-tags">
-                    <span>Comprehensive Eye Exams</span>
-                    <span>Prescription Eyewear</span>
-                    <span>Ocular Disease Screening</span>
-                    <span>Contact Lens Fitting</span>
+            <div id="step-2" class="triage-step">
+                <h3>Are you a returning patient or new to our Bloomingdale clinic?</h3>
+                <div class="triage-options">
+                    <div class="option-card" onclick="finalizeTriage('New Patient Appointment Pathway')">I am a brand new patient</div>
+                    <div class="option-card" onclick="finalizeTriage('Returning Member Fast Track')">I am an existing client tracking routine wellness</div>
                 </div>
+            </div>
+
+            <div id="step-result" class="triage-step">
+                <h3 style="color: var(--secondary);">Recommended Clinic Path Determined:</h3>
+                <p id="triageSummary" style="font-size: 1.2rem; margin: 16px 0; font-weight: 600;"></p>
+                <a href="http://healow.com/apps/practice/livingwell-clinic-pllc-31701?v=2" target="_blank" class="btn btn-secondary">Launch Integrated Appointment Window</a>
+                <button class="filter-btn" style="margin-left: 15px;" onclick="resetTriage()">Restart Quiz</button>
             </div>
         </section>
-        
+
         <section id="providers">
             <h2 class="section-title">Meet Our Medical Providers</h2>
             <div class="providers-grid">
                 <div class="provider-card">
-                    <img src="Dr. Manali Patel.jpg" alt="Dr. Manali Patel Headshot" class="provider-avatar">
+                    <img src="Dr. Manali Patel.jpg" alt="Dr. Manali Patel" class="provider-avatar">
                     <div class="provider-details">
                         <h2>Manali Patel, MD, DABOM</h2>
                         <div class="provider-tag">Internal Medicine & Obesity Medicine</div>
@@ -599,7 +188,7 @@
                     </div>
                 </div>
                 <div class="provider-card">
-                    <img src="Dr. Nayan Patel.jpg" alt="Dr. Nayan Patel Headshot" class="provider-avatar">
+                    <img src="Dr. Nayan Patel.jpg" alt="Dr. Nayan Patel" class="provider-avatar">
                     <div class="provider-details">
                         <h2>Nayan Patel, OD, ABO</h2>
                         <div class="provider-tag">Doctor of Optometry</div>
@@ -609,6 +198,12 @@
             </div>
         </section>
 
+        <section id="faq-section" class="faq-wrapper">
+            <h2 class="section-title">Helpful Patient Knowledge</h2>
+            <div id="faqContainer">
+                </div>
+        </section>
+
         <section id="contact" class="info-block-grid">
             <div class="content-card">
                 <h3 style="color:var(--primary); margin-bottom:16px; font-family:'Playfair Display', serif; font-size:1.8rem;">Clinic Operations</h3>
@@ -616,7 +211,6 @@
                 <p style="margin-bottom:8px; font-size:1.05rem;"><strong>Phone Number:</strong> <a href="tel:630-242-2455" style="color: var(--secondary); text-decoration: none; font-weight: 600;">630-242-2455</a></p>
                 <p style="margin-bottom:8px; font-size:1.05rem;"><strong>Fax Number:</strong> 630-242-2435</p>
                 <p style="margin-bottom:8px; font-size:1.05rem;"><strong>Email Address:</strong> livingwellclinicpllc@gmail.com</p>
-                <p style="color: #c93a3a; font-size: 0.9rem; margin-top:20px; font-weight: 500;">* Secure portal systems should always be prioritized over basic insecure public email strings for private data health logs.</p>
             </div>
             <div class="content-card">
                 <h3 style="color:var(--primary); margin-bottom:16px; font-weight:700;">Office Hours</h3>
@@ -635,23 +229,139 @@
     </footer>
 
     <script>
-        document.querySelectorAll('nav a[href^="#"], .hero-features a[href^="#"]').forEach(anchor => {
+        let localClinicDatabase = [];
+        let runningActiveFilter = 'all';
+
+        // ASYNCHRONOUS ENGINE FETCH DATA CONTEXT FROM EXTERNAL JSON
+        async function loadClinicSystemData() {
+            try {
+                const queryStream = await fetch('clinic-data.json');
+                const structuredData = await queryStream.json();
+                
+                localClinicDatabase = structuredData.services;
+                renderServicesCards(localClinicDatabase);
+                renderFAQEngine(structuredData.faqs);
+            } catch (error) {
+                console.error("System Log Error: JSON Data could not load efficiently.", error);
+            }
+        }
+
+        // DYNAMIC DOM DATA POPULATION
+        function renderServicesCards(targetArray) {
+            const viewportGrid = document.getElementById('servicesGrid');
+            viewportGrid.innerHTML = '';
+
+            if(targetArray.length === 0) {
+                viewportGrid.innerHTML = `<p style="grid-column:1/-1; padding:20px; text-align:center; color:var(--text-light);">No medical capabilities match your filter query parameters.</p>`;
+                return;
+            }
+
+            targetArray.forEach(item => {
+                const htmlCardTemplate = `
+                    <div class="service-card ${item.category}">
+                        <h3>
+                            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="stroke:currentColor;"><path d="${item.icon}"/></svg>
+                            ${item.title}
+                        </h3>
+                        <p>${item.description}</p>
+                        <div class="badge-box">
+                            ${item.tags.map(tag => `<span class="badge">${tag}</span>`).join('')}
+                        </div>
+                    </div>
+                `;
+                viewportGrid.innerHTML += htmlCardTemplate;
+            });
+        }
+
+        function renderFAQEngine(faqArray) {
+            const container = document.getElementById('faqContainer');
+            container.innerHTML = faqArray.map((faq, index) => `
+                <div class="faq-item">
+                    <button class="faq-trigger" onclick="toggleAccordion(this)">
+                        ${faq.question} <span>▾</span>
+                    </button>
+                    <div class="faq-content">
+                        <p style="padding-bottom: 20px;">${faq.answer}</p>
+                    </div>
+                </div>
+            `).join('');
+        }
+
+        // REAL-TIME KEYWORD SEARCH LOGIC
+        document.getElementById('searchBar').addEventListener('input', function(e) {
+            const rawInputString = e.target.value.toLowerCase();
+            const processFilteredMatrix = localClinicDatabase.filter(service => {
+                const structuralMatches = service.title.toLowerCase().includes(rawInputString) || 
+                                          service.description.toLowerCase().includes(rawInputString) ||
+                                          service.tags.some(t => t.toLowerCase().includes(rawInputString));
+                const compliesWithActiveFilter = (runningActiveFilter === 'all' || service.category === runningActiveFilter);
+                return structuralMatches && compliesWithActiveFilter;
+            });
+            renderServicesCards(processFilteredMatrix);
+        });
+
+        // CATEGORY BALANCING FILTER LOGIC
+        function filterCategory(targetCategory, elementPointer) {
+            runningActiveFilter = targetCategory;
+            document.querySelectorAll('.filter-btn').forEach(btn => btn.classList.remove('active'));
+            elementPointer.classList.add('active');
+            
+            const freshKeywordQuery = document.getElementById('searchBar').value.toLowerCase();
+            const runCompiledFilter = localClinicDatabase.filter(service => {
+                const matchCategory = (targetCategory === 'all' || service.category === targetCategory);
+                const matchKeyword = service.title.toLowerCase().includes(freshKeywordQuery) || service.description.toLowerCase().includes(freshKeywordQuery);
+                return matchCategory && matchKeyword;
+            });
+            renderServicesCards(runCompiledFilter);
+        }
+
+        // SMOOTH-SCROLL COMPONENT WITH FIXED HEADER COMPENSATION
+        document.querySelectorAll('nav a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function(e) {
                 e.preventDefault();
-                const targetId = this.getAttribute('href');
-                const targetElement = document.querySelector(targetId);
-                
+                const targetElement = document.querySelector(this.getAttribute('href'));
                 if (targetElement) {
-                    const headerHeight = document.getElementById('main-header').offsetHeight;
-                    const elementPosition = targetElement.getBoundingClientRect().top + window.scrollY;
-                    
+                    const dynamicHeaderOffset = document.getElementById('main-header').offsetHeight;
                     window.scrollTo({
-                        top: elementPosition - headerHeight - 20, 
+                        top: (targetElement.getBoundingClientRect().top + window.scrollY) - dynamicHeaderOffset - 20,
                         behavior: 'smooth'
                     });
                 }
             });
         });
+
+        // INTERACTIVE ACCORDION LOGIC
+        function toggleAccordion(element) {
+            const targetPanel = element.nextElementSibling;
+            if (targetPanel.style.maxHeight && targetPanel.style.maxHeight !== "0px") {
+                targetPanel.style.maxHeight = "0px";
+            } else {
+                document.querySelectorAll('.faq-content').forEach(p => p.style.maxHeight = "0px");
+                targetPanel.style.maxHeight = targetPanel.scrollHeight + "px";
+            }
+        }
+
+        // HEALTH HUB DIAGNOSTIC WIZARD STATE ROUTER
+        let gatheredTriageLog = "";
+        function goToStep(nextIndex, pickedStringValue) {
+            gatheredTriageLog += pickedStringValue + " ➔ ";
+            document.querySelectorAll('.triage-step').forEach(step => step.classList.remove('active'));
+            document.getElementById(`step-${nextIndex}`).classList.add('active');
+        }
+        function finalizeTriage(finalSegment) {
+            gatheredTriageLog += finalSegment;
+            document.querySelectorAll('.triage-step').forEach(step => step.classList.remove('active'));
+            document.getElementById('triageSummary').innerText = gatheredTriageLog;
+            document.getElementById('step-result').classList.add('active');
+        }
+        function resetTriage() {
+            gatheredTriageLog = "";
+            document.querySelectorAll('.triage-step').forEach(step => step.classList.remove('active'));
+            document.getElementById('step-1').classList.add('active');
+        }
+
+        // INITIALIZE ALL ASYNC MODULES UPON MOUNT
+        window.addEventListener('DOMContentLoaded', loadClinicSystemData);
     </script>
 </body>
 </html>
