@@ -1,0 +1,38 @@
+{
+  "services": [
+    {
+      "id": "internal-medicine",
+      "title": "Internal Medicine",
+      "category": "medical",
+      "icon": "M22 12h-4l-3 9L9 3l-3 9H2",
+      "description": "Our Internal Medicine practice is dedicated to the prevention, diagnosis, and treatment of adult illnesses. We focus on managing chronic conditions such as hypertension, diabetes, and heart disease.",
+      "tags": ["Chronic Disease Management", "Preventative Screenings", "Annual Wellness Exams", "Adult Primary Care"]
+    },
+    {
+      "id": "weight-management",
+      "title": "Medical Weight Management",
+      "category": "lifestyle",
+      "icon": "M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6",
+      "description": "Led by board-certified expertise, our weight management plans are built entirely around your metabolic health. We blend medical monitoring with nutritional logic and lifestyle adjustment tracks.",
+      "tags": ["Metabolic Testing", "Physician-Supervised Programs", "Nutritional Counseling", "Lifestyle Optimization"]
+    },
+    {
+      "id": "optometry",
+      "title": "Optometry Eye Clinic",
+      "category": "medical",
+      "icon": "M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z",
+      "description": "From comprehensive vision profiles to advanced therapeutic diagnosis for ocular diseases, our eye care department provides full-scope family vision tracking.",
+      "tags": ["Comprehensive Eye Exams", "Prescription Eyewear", "Ocular Disease Screening", "Contact Lens Fitting"]
+    }
+  ],
+  "faqs": [
+    {
+      "question": "How do I access the Patient Portal?",
+      "answer": "You can log in securely using the 'Patient Portal Login' link in our header menu. This allows you to view lab results, complete check-in forms, and safely message your care team."
+    },
+    {
+      "question": "What should I bring to my first appointment?",
+      "answer": "Please bring a valid photo ID, your insurance card, and a complete list of any current medications or supplements you are taking."
+    }
+  ]
+}
